@@ -1,4 +1,4 @@
-# DesafioIBGEAPI :envelope::earth_americas:
+# DesafioIBGE :envelope::earth_americas:
 
 Este repositório contém a API que foi criada como parte do desafio para gerenciar dados de cidades e estados de todo o Brasil, baseada no conjunto de dados disponível no seguinte repositório: [ibge](https://github.com/andrebaltieri/ibge). A API foi desenvolvida com base no desafio proposto e possui as funcionalidades especificadas.
 
