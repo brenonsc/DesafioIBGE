@@ -10,7 +10,6 @@ using DesafioIBGE.Validator;
 using FluentValidation;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -80,7 +79,7 @@ builder.Services.AddSwaggerGen(options =>
         },
         License = new OpenApiLicense
         {
-            Name = "Anerson Alves GitHub",
+            Name = "Anderson Alves GitHub",
             Url = new Uri("https://github.com/ander-alves")
         }
     });

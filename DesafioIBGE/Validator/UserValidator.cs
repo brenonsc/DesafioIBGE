@@ -15,6 +15,6 @@ public class UserValidator : AbstractValidator<User>
         RuleFor(u => u.Senha)
             .NotEmpty()
             .MinimumLength(8)
-            .MaximumLength(32);
+            .MaximumLength(255);
     }
 }

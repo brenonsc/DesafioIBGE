@@ -13,6 +13,23 @@ public class UserService : IUserService
         _context = context;
     }
     
+    public async Task<User?> GetById(long id)
+    {
+        try
+        {
+            var usuario = await _context.Users
+                .FirstAsync(i => i.Id == id);
+            
+            usuario.Senha = "";
+            
+            return usuario;
+        }
+        catch
+        {
+            return null;
+        }
+    }
+    
     public async Task<User?> GetByUsuario(string usuario)
     {
         try

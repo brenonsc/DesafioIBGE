@@ -12,7 +12,7 @@ public class AppDbContext : DbContext
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<User>().ToTable("USER");
+        modelBuilder.Entity<User>().ToTable("Users");
     }
     
     public DbSet<User> Users { get; set; } = null!;
