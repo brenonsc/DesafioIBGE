@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioIBGE", "DesafioIBGE\DesafioIBGE.csproj", "{DFC9B434-C19A-4016-A450-A3249B439901}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioIBGETest", "DesafioIBGETest\DesafioIBGETest.csproj", "{38E24BFB-F02A-4858-9774-7FDCF6D14D39}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{DFC9B434-C19A-4016-A450-A3249B439901}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DFC9B434-C19A-4016-A450-A3249B439901}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DFC9B434-C19A-4016-A450-A3249B439901}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38E24BFB-F02A-4858-9774-7FDCF6D14D39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38E24BFB-F02A-4858-9774-7FDCF6D14D39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38E24BFB-F02A-4858-9774-7FDCF6D14D39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38E24BFB-F02A-4858-9774-7FDCF6D14D39}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
