@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DesafioIBGE.Service.Implements;
 
-public class UserService
+public class UserService : IUserService
 {
     private readonly AppDbContext _context;
     
