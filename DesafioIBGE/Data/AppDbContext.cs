@@ -1,3 +1,4 @@
+using DesafioIBGE.Model;
 using Microsoft.EntityFrameworkCore;
 
 namespace DesafioIBGE.Data;
@@ -8,4 +9,11 @@ public class AppDbContext : DbContext
     {
         
     }
+    
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<User>().ToTable("USER");
+    }
+    
+    public DbSet<User> Users { get; set; } = null!;
 }
