@@ -12,8 +12,8 @@ public class AppDbContext : DbContext
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<User>().ToTable("Users");
-        modelBuilder.Entity<Location>().ToTable("IBGE");
+        modelBuilder.Entity<User>().ToTable("users");
+        modelBuilder.Entity<Location>().ToTable("ibge");
     }
     
     public DbSet<User> Users { get; set; } = null!;

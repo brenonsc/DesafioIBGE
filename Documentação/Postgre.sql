@@ -1,24 +1,24 @@
-CREATE TABLE IF NOT EXISTS ibge
+CREATE TABLE IF NOT EXISTS IBGE
 (
-   id     char(7) NOT NULL,
-   state  char(2),
-   city   varchar(80)
+   Id     char(7) NOT NULL,
+   State  char(2),
+   City   varchar(80)
 );
 
-ALTER TABLE ibge ADD CONSTRAINT pk_ibge PRIMARY KEY (id);
+ALTER TABLE IBGE ADD CONSTRAINT pk_ibge PRIMARY KEY (id);
 
-CREATE INDEX IF NOT EXISTS ix_ibge_id ON ibge USING btree (id);
-CREATE INDEX IF NOT EXISTS ix_ibge_city ON ibge USING btree (city);
-CREATE INDEX IF NOT EXISTS ix_ibge_state ON ibge USING btree (state);
+CREATE INDEX IF NOT EXISTS ix_ibge_id ON IBGE USING btree (id);
+CREATE INDEX IF NOT EXISTS ix_ibge_city ON IBGE USING btree (city);
+CREATE INDEX IF NOT EXISTS ix_ibge_state ON IBGE USING btree (state);
 
-CREATE TABLE IF NOT EXISTS users
+CREATE TABLE IF NOT EXISTS Users
 (
     Id SERIAL PRIMARY KEY,
     Usuario VARCHAR(255) NOT NULL,
     Senha VARCHAR(255) NOT NULL
 );
 
-INSERT INTO ibge VALUES
+INSERT INTO IGBE VALUES
     ('1100015', 'RO', 'Alta Floresta D''Oeste'),
     ('1100379', 'RO', 'Alto Alegre dos Parecis'),
     ('1100403', 'RO', 'Alto Paraíso'),
