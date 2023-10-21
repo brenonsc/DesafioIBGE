@@ -47,6 +47,7 @@ public class LocationService : ILocationService
         
         var locations = await _context.Locations
             .Where(x => x.city.ToLower().Contains(searchCity)) 
+            .OrderBy(x => x.city)
             .ToListAsync();
 
         return locations;
@@ -54,9 +55,13 @@ public class LocationService : ILocationService
 
     public async Task<IEnumerable<Location>> GetLocationsByState(string state)
     {
+        var searchState =  state.ToUpper();
+        
         var locations = await _context.Locations
-            .Where(x => x.state == state)
+            .Where(x => x.state.Contains(searchState))
+            .OrderBy(x => x.city)
             .ToListAsync();
+       
         return locations;
     }
 
@@ -82,7 +87,6 @@ public class LocationService : ILocationService
 
     public async Task<Location?> UpdateLocation(Location location)
     {
-        
         var locationUpdate = await _context.Locations.FindAsync(location.id);
 
         if (locationUpdate == null)
@@ -93,7 +97,6 @@ public class LocationService : ILocationService
         await _context.SaveChangesAsync();
         
         return location;
-        
     }
 
     public async Task<Location?> DeleteLocation(string id)

@@ -80,13 +80,13 @@ public class Program
                 Description = "API REST criada com o ASP.NET Core 7.0 para o desafio do IBGE proposto pelo balta.io",
                 Contact = new OpenApiContact
                 {
-                    Name = "Breno Henrique GitHub",
-                    Url = new Uri("https://github.com/brenonsc")
+                    Name = "LinkTree do Grupo",
+                    Url = new Uri("https://linktr.ee/grupoibge")
                 },
                 License = new OpenApiLicense
                 {
-                    Name = "Anderson Alves GitHub",
-                    Url = new Uri("https://github.com/ander-alves")
+                    Name = "Link do Repositorio Github",
+                    Url = new Uri("https://github.com/brenonsc/DesafioIBGE")
                 }
             });
 
@@ -136,7 +136,7 @@ public class Program
         {
             app.UseSwaggerUI(options =>
             {
-                options.SwaggerEndpoint("/swagger/v1/swagger.json", "Desafio do IBGE proposto pelo balta.io - v1");
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "Desafio do IBGE - v1");
                 options.RoutePrefix = string.Empty;
             });
         }

@@ -46,6 +46,10 @@ public class LocationController : ControllerBase
     [HttpGet("state/{state}")]
     public async Task<ActionResult> GetLocationsByState(string state)
     {
+        if (state.Length > 2)
+        {
+            return BadRequest("Estado Invalido, Informe a Sigla do Estado Ex: SP");
+        }
         return Ok(await _locationService.GetLocationsByState(state));
     }
     
