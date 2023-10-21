@@ -1,0 +1,10 @@
+﻿version: '3'
+services:
+  sqlserver:
+    image: mcr.microsoft.com/azure-sql-edge:latest
+    container_name: azuresqledge
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=My@Password
+    ports:
+      - "1431:1433"
