@@ -43,10 +43,12 @@ public class Program
 
 //Registrar validação das entidades
         builder.Services.AddTransient<IValidator<User>, UserValidator>();
+        builder.Services.AddTransient<IValidator<Location>, LocationValidator>();
 
 //Registrar as classes de serviço
         builder.Services.AddScoped<IUserService, UserService>();
         builder.Services.AddScoped<IAuthService, AuthService>();
+        builder.Services.AddScoped<ILocationService, LocationService>();
 
         builder.Services.AddAuthentication(options =>
         {
@@ -134,7 +136,7 @@ public class Program
         {
             app.UseSwaggerUI(options =>
             {
-                options.SwaggerEndpoint("/swagger/v1/swagger.json", "Projeto Blog Pessoal - v1");
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "Desafio do IBGE proposto pelo balta.io - v1");
                 options.RoutePrefix = string.Empty;
             });
         }
