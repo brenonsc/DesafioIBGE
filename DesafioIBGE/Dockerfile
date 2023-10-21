@@ -6,10 +6,10 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
-COPY ["DesafioIBGE/DesafioIBGE.csproj", "DesafioIBGE/"]
-RUN dotnet restore "DesafioIBGE/DesafioIBGE.csproj"
+COPY ["DesafioIBGE.csproj", "./"]
+RUN dotnet restore "DesafioIBGE.csproj"
 COPY . .
-WORKDIR "/src/DesafioIBGE"
+WORKDIR "/src/"
 RUN dotnet build "DesafioIBGE.csproj" -c Release -o /app/build
 
 FROM build AS publish
