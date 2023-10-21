@@ -22,8 +22,8 @@ public class UserController : ControllerBase
         _authService = authService;
     }
     
-    [Authorize]
     [HttpGet("{id}")]
+    [ApiExplorerSettings(IgnoreApi = true)]
     public async Task<ActionResult> GetById(long id)
     {
         var user = await _userService.GetById(id);
