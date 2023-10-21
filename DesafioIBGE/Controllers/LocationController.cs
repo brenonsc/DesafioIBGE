@@ -60,15 +60,15 @@ public class LocationController : ControllerBase
         var repost = await _locationService.CreateLocation(location);
 
         if (repost is null)
-            return BadRequest($"Localidade com Codigo {location.Id} já cadastrada!");
+            return BadRequest($"Localidade com Codigo {location.id} já cadastrada!");
         
-        return CreatedAtAction(nameof(GetById), new {id = location.Id}, location);
+        return CreatedAtAction(nameof(GetById), new {id = location.id}, location);
     }
     
     [HttpPut]
     public async Task<ActionResult> Update([FromBody] Location location)
     {
-        if (location.Id.Length != 7)
+        if (location.id.Length != 7)
             return BadRequest("Codigo do IBGE é Invalido");
 
         var validationResult = await _locationValidator.ValidateAsync(location);

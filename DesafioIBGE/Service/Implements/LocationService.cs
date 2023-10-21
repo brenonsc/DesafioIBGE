@@ -19,7 +19,7 @@ public class LocationService : ILocationService
     {
         var locations = await _context.Locations
             .AsNoTracking()
-            .OrderBy(x => x.City)
+            .OrderBy(x => x.city)
             .ToListAsync();
 
         return locations;    
@@ -30,7 +30,7 @@ public class LocationService : ILocationService
         try
         {
             var locations =  await _context.Locations
-                .FirstAsync(i => i.Id == id);   
+                .FirstAsync(i => i.id == id);   
 
         return locations;
         }
@@ -46,7 +46,7 @@ public class LocationService : ILocationService
         var searchCity =  city.ToLower();
         
         var locations = await _context.Locations
-            .Where(x => x.City.ToLower().Contains(searchCity)) 
+            .Where(x => x.city.ToLower().Contains(searchCity)) 
             .ToListAsync();
 
         return locations;
@@ -55,7 +55,7 @@ public class LocationService : ILocationService
     public async Task<IEnumerable<Location>> GetLocationsByState(string state)
     {
         var locations = await _context.Locations
-            .Where(x => x.State == state)
+            .Where(x => x.state == state)
             .ToListAsync();
         return locations;
     }
@@ -64,7 +64,7 @@ public class LocationService : ILocationService
     {
         try
         {
-            if (await _context.Locations.AnyAsync(x => x.Id == location.Id))
+            if (await _context.Locations.AnyAsync(x => x.id == location.id))
             {
                 throw new Exception("Uma Location com o mesmo ID já existe no banco de dados.");
             }
@@ -83,7 +83,7 @@ public class LocationService : ILocationService
     public async Task<Location?> UpdateLocation(Location location)
     {
         
-        var locationUpdate = await _context.Locations.FindAsync(location.Id);
+        var locationUpdate = await _context.Locations.FindAsync(location.id);
 
         if (locationUpdate == null)
             return null;
@@ -98,7 +98,7 @@ public class LocationService : ILocationService
 
     public async Task<Location?> DeleteLocation(string id)
     {
-        var location = await _context.Locations.FirstOrDefaultAsync(x => x.Id == id);
+        var location = await _context.Locations.FirstOrDefaultAsync(x => x.id == id);
 
         if (location == null) 
             return null;

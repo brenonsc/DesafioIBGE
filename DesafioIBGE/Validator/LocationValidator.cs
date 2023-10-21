@@ -8,15 +8,15 @@ public class LocationValidator : AbstractValidator<Location>
 {
     public LocationValidator()
     {
-        RuleFor(L => L.Id)
+        RuleFor(L => L.id)
             .NotEmpty().Length(7);
 
 
-        RuleFor(L => L.State)
+        RuleFor(L => L.state)
             .NotEmpty().Length(2);
            
         
-        RuleFor(L => L.City)
+        RuleFor(L => L.city)
             .NotEmpty()
             .MaximumLength(80);
     }

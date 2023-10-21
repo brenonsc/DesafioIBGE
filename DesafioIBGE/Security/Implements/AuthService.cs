@@ -18,15 +18,15 @@ public class AuthService : IAuthService
     
     public async Task<UserLogin?> Autenticar(UserLogin userLogin)
     {
-        if(userLogin is null || string.IsNullOrEmpty(userLogin.Usuario) || string.IsNullOrEmpty(userLogin.Senha))
+        if(userLogin is null || string.IsNullOrEmpty(userLogin.usuario) || string.IsNullOrEmpty(userLogin.senha))
             return null;
         
-        var buscaUsuario = await _userService.GetByUsuario(userLogin.Usuario);
+        var buscaUsuario = await _userService.GetByUsuario(userLogin.usuario);
         
         if(buscaUsuario is null)
             return null;
         
-        if(!BCrypt.Net.BCrypt.Verify(userLogin.Senha, buscaUsuario.Senha))
+        if(!BCrypt.Net.BCrypt.Verify(userLogin.senha, buscaUsuario.senha))
             return null;
         
         var tokenHandler = new JwtSecurityTokenHandler();
@@ -36,7 +36,7 @@ public class AuthService : IAuthService
         {
             Subject = new ClaimsIdentity(new Claim[]
             {
-                new Claim(ClaimTypes.Name, userLogin.Usuario)
+                new Claim(ClaimTypes.Name, userLogin.usuario)
             }),
             Expires = DateTime.UtcNow.AddHours(1),
             SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey),
@@ -45,10 +45,10 @@ public class AuthService : IAuthService
         
         var token = tokenHandler.CreateToken(tokenDescriptor);
         
-        userLogin.Id = buscaUsuario.Id;
-        userLogin.Usuario = buscaUsuario.Usuario;
-        userLogin.Token = "Bearer " + tokenHandler.WriteToken(token).ToString();
-        userLogin.Senha = "";
+        userLogin.id = buscaUsuario.id;
+        userLogin.usuario = buscaUsuario.usuario;
+        userLogin.token = "Bearer " + tokenHandler.WriteToken(token).ToString();
+        userLogin.senha = "";
         
         return userLogin;
     }

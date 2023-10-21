@@ -48,7 +48,7 @@ public class UserController : ControllerBase
         if (resposta is null)
             return BadRequest("Usuário já cadastrado!");
         
-        return CreatedAtAction(nameof(GetById), new {id = user.Id}, user);
+        return CreatedAtAction(nameof(GetById), new {id = user.id}, user);
     }
 
     [AllowAnonymous]

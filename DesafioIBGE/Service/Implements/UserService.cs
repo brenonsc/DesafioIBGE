@@ -18,9 +18,9 @@ public class UserService : IUserService
         try
         {
             var usuario = await _context.Users
-                .FirstAsync(i => i.Id == id);
+                .FirstAsync(i => i.id == id);
             
-            usuario.Senha = "";
+            usuario.senha = "";
             
             return usuario;
         }
@@ -35,7 +35,7 @@ public class UserService : IUserService
         try
         {
             var buscaUsuario = await _context.Users
-                .Where(u => u.Usuario == usuario).FirstOrDefaultAsync();
+                .Where(u => u.usuario == usuario).FirstOrDefaultAsync();
 
             return buscaUsuario;
         }
@@ -47,12 +47,12 @@ public class UserService : IUserService
 
     public async Task<User?> Create(User usuario)
     {
-        var buscaUsuario = await GetByUsuario(usuario.Usuario);
+        var buscaUsuario = await GetByUsuario(usuario.usuario);
         
         if(buscaUsuario is not null)
             return null;
 
-        usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha, workFactor: 10);
+        usuario.senha = BCrypt.Net.BCrypt.HashPassword(usuario.senha, workFactor: 10);
         
         await _context.Users.AddAsync(usuario);
         await _context.SaveChangesAsync();

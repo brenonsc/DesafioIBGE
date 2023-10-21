@@ -7,13 +7,13 @@ public class User
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public long Id { get; set; }
+    public long id { get; set; }
     
     [Column(TypeName = "varchar")]
     [StringLength(255)]
-    public string Usuario { get; set; } = string.Empty;
+    public string usuario { get; set; } = string.Empty;
     
     [Column(TypeName = "varchar")]
     [StringLength(255)]
-    public string Senha { get; set; } = string.Empty;
+    public string senha { get; set; } = string.Empty;
 }

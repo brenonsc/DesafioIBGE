@@ -8,13 +8,13 @@ public class Location
     [Key]
     [Column(TypeName = "varchar")]
     [StringLength(7)]
-    public string Id { get; set; }
+    public string id { get; set; }
     
     [Column(TypeName = "varchar")]
     [StringLength(2)]
-    public string State { get; set; }  = string.Empty;
+    public string state { get; set; }  = string.Empty;
     
     [Column(TypeName = "varchar")]
     [StringLength(80)]
-    public string City { get; set; } = string.Empty;
+    public string city { get; set; } = string.Empty;
 }
