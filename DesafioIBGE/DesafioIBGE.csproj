@@ -12,6 +12,9 @@
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
       <DocumentationFile>DesafioIBGE.xml</DocumentationFile>
     </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <DocumentationFile>DesafioIBGE.xml</DocumentationFile>
+    </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="BCrypt.Net-Core" Version="1.6.0" />
         <PackageReference Include="FluentValidation" Version="11.8.0" />
