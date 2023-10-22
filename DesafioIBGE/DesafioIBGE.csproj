@@ -11,9 +11,11 @@
     <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
       <DocumentationFile>DesafioIBGE.xml</DocumentationFile>
+      <NoWarn>1701;1702;1591</NoWarn>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
       <DocumentationFile>DesafioIBGE.xml</DocumentationFile>
+      <NoWarn>1701;1702;1591</NoWarn>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="BCrypt.Net-Core" Version="1.6.0" />
