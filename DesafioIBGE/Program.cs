@@ -1,6 +1,7 @@
 using System.Text;
 using DesafioIBGE.Configuration;
 using DesafioIBGE.Data;
+using DesafioIBGE.Filters;
 using DesafioIBGE.Model;
 using DesafioIBGE.Security;
 using DesafioIBGE.Security.Implements;
@@ -85,10 +86,15 @@ public class Program
                 },
                 License = new OpenApiLicense
                 {
-                    Name = "Link do Repositorio Github",
+                    Name = "Link do Repositório no Github",
                     Url = new Uri("https://github.com/brenonsc/DesafioIBGE")
                 }
             });
+
+            var filePath = Path.Combine(AppContext.BaseDirectory, "DesafioIBGE.xml");
+            options.IncludeXmlComments(filePath);
+            
+            options.SchemaFilter<SwaggerSkipPropertyFilter>();
 
             //Configuração de segurança no Swagger
             options.AddSecurityDefinition("JWT", new OpenApiSecurityScheme

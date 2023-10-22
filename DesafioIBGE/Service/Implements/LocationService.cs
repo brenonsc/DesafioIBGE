@@ -71,7 +71,7 @@ public class LocationService : ILocationService
         {
             if (await _context.Locations.AnyAsync(x => x.id == location.id))
             {
-                throw new Exception("Uma Location com o mesmo ID já existe no banco de dados.");
+                throw new Exception("Uma localidade com o mesmo ID já existe no banco de dados.");
             }
             await _context.Locations.AddAsync(location);
             await _context.SaveChangesAsync();

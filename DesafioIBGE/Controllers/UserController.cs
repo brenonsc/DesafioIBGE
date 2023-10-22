@@ -33,7 +33,13 @@ public class UserController : ControllerBase
         
         return Ok(user);
     }
-
+    
+    /// <summary>
+    /// Cria um novo usuário no sistema
+    /// </summary>
+    /// <returns>Atributos do usuário</returns>
+    /// <response code="201">Usuário cadastrado com sucesso</response>
+    /// <response code="500">Erro provavelmente causado pelo Render, tente novamente, por favor</response>
     [AllowAnonymous]
     [HttpPost("signup")]
     public async Task<ActionResult> Create([FromBody] User user)
@@ -51,6 +57,12 @@ public class UserController : ControllerBase
         return CreatedAtAction(nameof(GetById), new {id = user.id}, user);
     }
 
+    /// <summary>
+    /// Autentica um usuário no sistema
+    /// </summary>
+    /// <returns>Retorna atributos do usuário e Token</returns>
+    /// <response code="200">Usuário logado com sucesso</response>
+    /// <response code="500">Erro provavelmente causado pelo Render, tente novamente, por favor</response>
     [AllowAnonymous]
     [HttpPost("signin")]
     public async Task<ActionResult> Autenticar([FromBody] UserLogin userLogin)

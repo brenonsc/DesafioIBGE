@@ -9,6 +9,9 @@
 
     <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
     <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <DocumentationFile>DesafioIBGE.xml</DocumentationFile>
+    </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="BCrypt.Net-Core" Version="1.6.0" />
         <PackageReference Include="FluentValidation" Version="11.8.0" />

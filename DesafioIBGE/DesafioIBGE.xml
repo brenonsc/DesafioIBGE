@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DesafioIBGE</name>
+    </assembly>
+    <members>
+        <member name="M:DesafioIBGE.Controllers.LocationController.GetAll">
+            <summary>
+            Retorna todas as localidades cadastradas no sistema
+            </summary>
+            <returns>Retorna todas as localidades cadastradas no sistema</returns>
+            <response code="200">Sucesso</response>
+            <response code="401">Não autorizado</response>
+            <response code="500">Erro provavelmente causado pelo Render, tente novamente, por favor</response>
+        </member>
+        <member name="M:DesafioIBGE.Controllers.LocationController.GetById(System.String)">
+            <summary>
+            Retorna a localidade com o ID informado
+            </summary>
+            <returns>Retorna atributos da localidade</returns>
+            <response code="200">Sucesso</response>
+            <response code="401">Não autorizado</response>
+            <response code="500">Erro provavelmente causado pelo Render, tente novamente, por favor</response>
+        </member>
+        <member name="M:DesafioIBGE.Controllers.LocationController.GetLocationsByCity(System.String)">
+            <summary>
+            Retorna as cidades que contém o nome informado
+            </summary>
+            <returns>Retorna atributos da localidade informada</returns>
+            <response code="200">Sucesso</response>
+            <response code="401">Não autorizado</response>
+            <response code="500">Erro provavelmente causado pelo Render, tente novamente, por favor</response>
+        </member>
+        <member name="M:DesafioIBGE.Controllers.LocationController.GetLocationsByState(System.String)">
+            <summary>
+            Retorna os estados que contém o nome informado
+            </summary>
+            <returns>Retorna atributos da localidade informada</returns>
+            <response code="200">Sucesso</response>
+            <response code="401">Não autorizado</response>
+            <response code="500">Erro provavelmente causado pelo Render, tente novamente, por favor</response>
+        </member>
+        <member name="M:DesafioIBGE.Controllers.LocationController.Create(DesafioIBGE.Model.Location)">
+            <summary>
+            Cadastra uma nova localidade
+            </summary>
+            <returns>Retorna atributos da localidade informada</returns>
+            <response code="201">Localidade criada com sucesso</response>
+            <response code="401">Não autorizado</response>
+            <response code="500">Erro provavelmente causado pelo Render, tente novamente, por favor</response>
+        </member>
+        <member name="M:DesafioIBGE.Controllers.LocationController.Update(DesafioIBGE.Model.Location)">
+            <summary>
+            Atualiza uma localidade existente
+            </summary>
+            <returns>Retorna atributos da localidade informada</returns>
+            <response code="200">Localidade atualizada com sucesso</response>
+            <response code="401">Não autorizado</response>
+            <response code="500">Erro provavelmente causado pelo Render, tente novamente, por favor</response>
+        </member>
+        <member name="M:DesafioIBGE.Controllers.LocationController.Delete(System.String)">
+            <summary>
+            Deleta uma localidade existente pelo ID
+            </summary>
+            <returns>Retorna NoContent</returns>
+            <response code="204">Localidade deletada com sucesso</response>
+            <response code="401">Não autorizado</response>
+            <response code="500">Erro provavelmente causado pelo Render, tente novamente, por favor</response>
+        </member>
+        <member name="M:DesafioIBGE.Controllers.UserController.Create(DesafioIBGE.Model.User)">
+            <summary>
+            Cria um novo usuário no sistema
+            </summary>
+            <returns>Atributos do usuário</returns>
+            <response code="201">Usuário cadastrado com sucesso</response>
+            <response code="500">Erro provavelmente causado pelo Render, tente novamente, por favor</response>
+        </member>
+        <member name="M:DesafioIBGE.Controllers.UserController.Autenticar(DesafioIBGE.Model.UserLogin)">
+            <summary>
+            Autentica um usuário no sistema
+            </summary>
+            <returns>Retorna atributos do usuário e Token</returns>
+            <response code="200">Usuário logado com sucesso</response>
+            <response code="500">Erro provavelmente causado pelo Render, tente novamente, por favor</response>
+        </member>
+        <member name="P:DesafioIBGE.Model.Location.id">
+            <summary>
+            Código de 7 dígitos do IBGE
+            </summary>
+            <example>1234567</example>
+        </member>
+        <member name="P:DesafioIBGE.Model.Location.state">
+            <summary>
+            Sigla do estado
+            </summary>
+            <example>SP</example>
+        </member>
+        <member name="P:DesafioIBGE.Model.Location.city">
+            <summary>
+            Nome da cidade
+            </summary>
+            <example>Cidade exemplo</example>
+        </member>
+        <member name="P:DesafioIBGE.Model.User.usuario">
+            <summary>
+            E-mail do usuário
+            </summary>
+            <example>example@email.com</example>
+        </member>
+        <member name="P:DesafioIBGE.Model.User.senha">
+            <summary>
+            Senha do usuário
+            </summary>
+            <example>Y0ur$tr0ngP@ssw0rd</example>
+        </member>
+        <member name="P:DesafioIBGE.Model.UserLogin.usuario">
+            <summary>
+            E-mail do usuário
+            </summary>
+            <example>example@email.com</example>
+        </member>
+        <member name="P:DesafioIBGE.Model.UserLogin.senha">
+            <summary>
+            Senha do usuário
+            </summary>
+            <example>Y0ur$tr0ngP@ssw0rd</example>
+        </member>
+    </members>
+</doc>

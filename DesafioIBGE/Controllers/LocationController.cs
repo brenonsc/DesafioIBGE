@@ -21,12 +21,26 @@ public class LocationController : ControllerBase
         _locationValidator = locationValidator;
     }
     
+    /// <summary>
+    /// Retorna todas as localidades cadastradas no sistema
+    /// </summary>
+    /// <returns>Retorna todas as localidades cadastradas no sistema</returns>
+    /// <response code="200">Sucesso</response>
+    /// <response code="401">Não autorizado</response>
+    /// <response code="500">Erro provavelmente causado pelo Render, tente novamente, por favor</response>
     [HttpGet]
     public async Task<ActionResult> GetAll()
     {
         return Ok(await _locationService.GetAllLocations());
     }
     
+    /// <summary>
+    /// Retorna a localidade com o ID informado
+    /// </summary>
+    /// <returns>Retorna atributos da localidade</returns>
+    /// <response code="200">Sucesso</response>
+    /// <response code="401">Não autorizado</response>
+    /// <response code="500">Erro provavelmente causado pelo Render, tente novamente, por favor</response>
     [HttpGet("{id}")]
     public async Task<ActionResult> GetById(string id)
     {
@@ -37,12 +51,26 @@ public class LocationController : ControllerBase
         return Ok(user);
     }
     
+    /// <summary>
+    /// Retorna as cidades que contém o nome informado
+    /// </summary>
+    /// <returns>Retorna atributos da localidade informada</returns>
+    /// <response code="200">Sucesso</response>
+    /// <response code="401">Não autorizado</response>
+    /// <response code="500">Erro provavelmente causado pelo Render, tente novamente, por favor</response>
     [HttpGet("city/{city}")]
     public async Task<ActionResult> GetLocationsByCity(string city)
     {
         return Ok(await _locationService.GetLocationsByCity(city));
     }
     
+    /// <summary>
+    /// Retorna os estados que contém o nome informado
+    /// </summary>
+    /// <returns>Retorna atributos da localidade informada</returns>
+    /// <response code="200">Sucesso</response>
+    /// <response code="401">Não autorizado</response>
+    /// <response code="500">Erro provavelmente causado pelo Render, tente novamente, por favor</response>
     [HttpGet("state/{state}")]
     public async Task<ActionResult> GetLocationsByState(string state)
     {
@@ -53,6 +81,13 @@ public class LocationController : ControllerBase
         return Ok(await _locationService.GetLocationsByState(state));
     }
     
+    /// <summary>
+    /// Cadastra uma nova localidade
+    /// </summary>
+    /// <returns>Retorna atributos da localidade informada</returns>
+    /// <response code="201">Localidade criada com sucesso</response>
+    /// <response code="401">Não autorizado</response>
+    /// <response code="500">Erro provavelmente causado pelo Render, tente novamente, por favor</response>
     [HttpPost]
     public async Task<ActionResult> Create([FromBody] Location location)
     {
@@ -64,16 +99,23 @@ public class LocationController : ControllerBase
         var repost = await _locationService.CreateLocation(location);
 
         if (repost is null)
-            return BadRequest($"Localidade com Codigo {location.id} já cadastrada!");
+            return BadRequest($"Localidade com código {location.id} já cadastrada!");
         
         return CreatedAtAction(nameof(GetById), new {id = location.id}, location);
     }
     
+    /// <summary>
+    /// Atualiza uma localidade existente
+    /// </summary>
+    /// <returns>Retorna atributos da localidade informada</returns>
+    /// <response code="200">Localidade atualizada com sucesso</response>
+    /// <response code="401">Não autorizado</response>
+    /// <response code="500">Erro provavelmente causado pelo Render, tente novamente, por favor</response>
     [HttpPut]
     public async Task<ActionResult> Update([FromBody] Location location)
     {
         if (location.id.Length != 7)
-            return BadRequest("Codigo do IBGE é Invalido");
+            return BadRequest("Código do IBGE inválido");
 
         var validationResult = await _locationValidator.ValidateAsync(location);
 
@@ -83,12 +125,19 @@ public class LocationController : ControllerBase
         var updateLocation = await _locationService.UpdateLocation(location);
 
         if (updateLocation is null)
-            return NotFound("Localizacao nao encontrada");
+            return NotFound("Localização não encontrada");
 
         return Ok(updateLocation);
 
     }
     
+    /// <summary>
+    /// Deleta uma localidade existente pelo ID
+    /// </summary>
+    /// <returns>Retorna NoContent</returns>
+    /// <response code="204">Localidade deletada com sucesso</response>
+    /// <response code="401">Não autorizado</response>
+    /// <response code="500">Erro provavelmente causado pelo Render, tente novamente, por favor</response>
     [HttpDelete("{id}")]
     public async Task<ActionResult> Delete(string id)
     {
@@ -96,8 +145,7 @@ public class LocationController : ControllerBase
         
         if (deletedLocation is null)
             return NotFound();
-        
+
         return NoContent();
-        
     }
 }
