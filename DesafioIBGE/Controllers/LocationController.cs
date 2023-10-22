@@ -91,6 +91,9 @@ public class LocationController : ControllerBase
     [HttpPost]
     public async Task<ActionResult> Create([FromBody] Location location)
     {
+        if (location.id.Length != 7)
+            return BadRequest("Código do IBGE inválido");
+        
         var validationResult = await _locationValidator.ValidateAsync(location);
         
         if (!validationResult.IsValid)
