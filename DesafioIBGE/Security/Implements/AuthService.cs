@@ -47,7 +47,7 @@ public class AuthService : IAuthService
         
         userLogin.id = buscaUsuario.id;
         userLogin.usuario = buscaUsuario.usuario;
-        userLogin.token = "Bearer " + tokenHandler.WriteToken(token).ToString();
+        userLogin.token = tokenHandler.WriteToken(token).ToString();
         userLogin.senha = "";
         
         return userLogin;

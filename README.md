@@ -36,7 +36,7 @@ A API desenvolvida contém as seguintes funcionalidades:
 - O código da API segue convenções de nomenclatura e padronização, tornando-o legível e consistente.
 
 ### Documentação (Swagger) :green_circle:
-- A API é documentada com o uso do Swagger ou uma ferramenta similar, facilitando o uso e entendimento por parte dos desenvolvedores.
+- A API é documentada com o uso do Swagger, facilitando o uso e entendimento por parte dos desenvolvedores.
 
 <br>
 
@@ -72,6 +72,32 @@ A classificação da sua equipe (Júnior, Pleno ou Sênior) é determinada pelo 
 
 - Importação de Dados: Criar um endpoint para importar os dados a partir deste arquivo Excel: [SQL INSERTS - API de localidades IBGE.xlsx](https://github.com/andrebaltieri/ibge/blob/main/SQL%20INSERTS%20-%20API%20de%20localidades%20IBGE.xlsx).
 - A API começará sem dados e os dados serão carregados via um endpoint que permita o upload do Excel.
+
+<br>
+
+## Rodando o Projeto :arrow_forward:
+
+Para executar este projeto localmente, siga os passos abaixo:
+
+1. Clone este repositório em sua máquina:
+
+   ```bash
+   git clone https://github.com/brenonsc/DesafioIBGE.git
+   ```
+
+2. Abra o projeto em sua IDE favorita, como o Visual Studio ou Visual Studio Code.
+
+3. Execute o Docker Compose para configurar o ambiente. Na raiz do projeto, execute o seguinte comando:
+
+   ```
+   $ docker-compose up
+   ```
+
+4. Abra o arquivo `appsettings.json` no projeto e mude a variável de ambiente `"Environment":"Start"` para `"DEV"`. Isso configurará o ambiente para desenvolvimento.
+
+5. Agora você está pronto para rodar o projeto localmente. Certifique-se de que seu ambiente de desenvolvimento esteja configurado corretamente e execute a aplicação.
+
+6. Para explorar a API e suas funcionalidades, você pode usar a documentação disponível no Swagger. Acesse a documentação em `http://localhost:5000/swagger`.
 
 <br>
 
